@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payrequest.Date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @payrequest.Time %>
+</p>
+
+<%= link_to 'Edit', edit_payrequest_path(@payrequest) %> |
+<%= link_to 'Back', payrequests_path %>

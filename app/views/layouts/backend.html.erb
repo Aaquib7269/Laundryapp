@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Laundryapp</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <%= stylesheet_link_tag    'backend', media: 'all' %>
+  <%= javascript_include_tag 'backend' %>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <!--cdn for datatables-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/r-2.1.1/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/r-2.1.1/datatables.min.js"></script>
+
+    <!--cdn for select2-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+
+   <body class="hold-transition skin-purple sidebar-mini" >
+      <div class="wrapper">
+            <%= render :partial => 'layouts/backend/header'%>
+            <%= render :partial => 'layouts/backend/side'%>
+      <div class="content-wrapper" style=>
+      <div class="container" >
+     <section  style="margin-right:50px;">
+     <%= yield %>
+   </section>
+
+</body>
+</html>

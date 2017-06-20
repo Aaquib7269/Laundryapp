@@ -1,0 +1,112 @@
+<section class="content-header" style="margin-bottom:30px">
+          <h1>
+            Manage Branches
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+          </ol>
+  </section>
+
+    <p id="notice"><%= notice %></p>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box" style="border-top:3px solid #6e5bb7">
+                <div class="box-header">
+                 <div style="float:right">
+                    <%= link_to  new_branch_path,class: "btn btn-success " do %>
+                      <b style="color:white;font-size:15px">Add Branches</b>
+                    <%end%>
+                    </div>
+                  <h3 class="box-title" style="float:left;margin-right:20px;color: #566573
+;">Manage Branches</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped" >
+                    <thead>
+                          <tr>
+                            <th>Branch name</th>
+                            <th>Branch address</th>
+                            <th>Phoneno</th>
+                             <th>Mangers name</th>
+                             <th>Status</th>                                 
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                              <tbody>
+                                    <% @branches.each do |branch| %>
+                                  <tr>
+                                                                           
+                                        <td><%= branch.branch_name %></td>
+                                        <td><%= branch.branch_address %></td>
+                                        <td><%= branch.phoneno %></td>
+                                        <td><%= branch.employe.try(:e_name)%></td>
+                                          </div>
+                                         
+                                          <td>
+                                            <% if branch.is_active == true %>
+                                            <%= link_to edit_branch_path(branch) do %>
+                                            <button class = "btn btn-warning">Active&nbsp&nbsp&nbsp </button>
+                                            <% end %>
+                                            <%else%><%= link_to "Inactive",edit_branch_path(branch),class: "btn btn-warning"%>
+                                            <%end%>
+                                          </td>
+                                              <td> 
+                                              <div class="btn-toolbar">
+                                             <div class="btn-group">
+                                              <span class=" btn btn-info dropdown-toggle" data-toggle="dropdown" href="#menu1">Action
+                                              <b class="caret"></b>
+                                              </span>
+                                           
+                                              <ul class="dropdown-menu">
+                                               <li><%= link_to 'Edit', edit_branch_path(branch) %></li>
+                                               <li><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                          </ul>
+                                          </li> 
+                                          </td>
+                                          </div>
+                                          </div>
+                                          </tr>
+                                         <% end %>
+                                        </tbody>
+
+                                    </table>
+
+                              </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                          </div><!-- /.col -->
+                        </div><!-- /.row -->
+                      </section><!-- /.content -->
+                    </div>
+
+<script>
+   $(function () {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+         "autoWidth": false
+       });
+      $('.dropdown-toggle').dropdown();
+  });
+  
+
+   
+
+   
+  </script>
+
+
+
+
+
+
+
+
+
+
+

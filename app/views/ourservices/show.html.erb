@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service type:</strong>
+  <%= @ourservice.service_type %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @ourservice.cost %>
+</p>
+
+<%= link_to 'Edit', edit_ourservice_path(@ourservice) %> |
+<%= link_to 'Back', ourservices_path %>

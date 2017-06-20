@@ -1,0 +1,96 @@
+<section class="content-header" style="margin-bottom:30px">
+          <h1>
+            Manage Paying Requests
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+          </ol>
+        </section>
+<p id="notice"><%= notice %></p>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box" style="border-top:3px solid #6e5bb7">
+                <div class="box-header">
+                 <div style="float:right">
+                    <%= link_to   new_payrequest_path,class: "btn btn-success " do %>
+                   <b style="color:white;font-size:15px">Add PayRequest</b>
+                    <%end%>
+                    </div>
+                  <h5 class="box-title" style="float:left;margin-right:20px;color: #566573
+;">Manage Paying Requests</h5>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                          <tr>
+                            <th>Customer Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            </tr>
+                        </thead>
+                              <tbody>
+                                  <% @payrequests.each do |payrequest| %>
+                                          <tr>
+                                          <td><%= payrequest.customer.try(:c_name)%></td>
+                                            <td><%= payrequest.try(:Date) %></td>
+                                            <td><%= payrequest.try(:Time).try(:strftime,("%I:%m %p")) %></td>
+                                              
+                                          </div>
+
+                                          <td>
+                                            <% if payrequest.is_active == true %>
+                                            <%= link_to edit_payrequest_path(payrequest) do %>
+                                            <button class = "btn btn-warning">Active&nbsp&nbsp&nbsp</button>
+                                            <%end%>
+                                            <%else%>
+                                            <%= link_to "Inactive",edit_payrequest_path(payrequest),class: "btn btn-warning"%>
+                                            <%end%>
+                                           </td> 
+                                              
+
+                                              <td> 
+                                             <div class="btn-group">
+                                              <span class=" btn btn-info dropdown-toggle" data-toggle="dropdown" href="#menu1">Action
+                                              <b class="caret"></b>
+                                              </span>
+                                           
+                                              <ul class="dropdown-menu">
+                                               <li><%= link_to 'Edit', edit_payrequest_path(payrequest) %></li>
+                                               <li><%= link_to 'Destroy', payrequest, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                          </ul>
+                                          </li> 
+                                          </td>
+                                          </div>
+                                          </tr>
+                                         <% end %>
+                                        </tbody>
+
+                                    </table>
+
+                              </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                          </div><!-- /.col -->
+                        </div><!-- /.row -->
+                      </section><!-- /.content -->
+                    </div>
+                     <script>
+   $(function () {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+         "autoWidth": false
+       });
+    });
+     $('.dropdown-toggle').dropdown()
+     $('.dropdown-menu a 123').on('click', function(){    
+    $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');    
+})
+  </script>

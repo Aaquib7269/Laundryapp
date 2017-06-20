@@ -1,0 +1,53 @@
+<div class="col-md-10">
+  <div class="box box-primary">
+   <div class="box-body">
+
+<%= form_for(@branch) do |f| %>
+  <% if @branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+
+      <ul>
+      <% @branch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box-body">
+
+  <div class="field">
+    <%= f.label :branch_name %><br>
+    <%= f.text_field :branch_name ,class: "form-control"  ,placeholder: "Enter Branch Name "%>
+  </div>
+  <div class="field">
+    <%= f.label :branch_address %><br>
+    <%= f.text_field :branch_address ,class: "form-control"  ,placeholder: "Enter Branch Address"%>
+  </div>
+  <div class="field ">
+    <label>Mangers name</label><br>
+    <%= f.select :employe_id,Employe.manager_list ,class: "form-control"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phoneno %><br>
+    <%= f.text_field :phoneno,class: "form-control"  ,placeholder: "Enter Phone no." %>
+  </div>
+  <div class="form-group">
+   <div class="field">
+    <%= f.check_box :is_active %>
+    &nbsp&nbsp<%= f.label :is_active %>
+  </div></div>
+ <div class="box-footer">
+    <%= f.submit class: "btn btn-primary" %>
+   &nbsp <%= link_to 'Back',branches_path %>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<script>
+  $('select').select2();
+</script>

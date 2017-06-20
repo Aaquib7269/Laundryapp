@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  designation_id: 
+  e_name: MyString
+  e_no: 
+  e_address: MyString
+  e_email: MyString
+
+two:
+  designation_id: 
+  e_name: MyString
+  e_no: 
+  e_address: MyString
+  e_email: MyString

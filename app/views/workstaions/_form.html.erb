@@ -1,0 +1,34 @@
+<div class="col-md-10">
+  <div class="box box-primary">
+    <div class="box-body">
+
+<%= form_for(@workstaion) do |f| %>
+  <% if @workstaion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workstaion.errors.count, "error") %> prohibited this workstaion from being saved:</h2>
+
+      <ul>
+      <% @workstaion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="box-body">
+  <div class="field">
+    <%= f.label :station_name %><br>
+    <%= f.text_field :station_name,class: "form-control" ,placeholder: "Enter new Workstaion"%>
+  </div>
+   <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.check_box :is_active%>
+  </div>
+  <div class="box-footer">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= link_to 'Back', workstaions_path %>
+  </div>
+<% end %>
+</div>
+ </div> 
+  </div>
+  </div>

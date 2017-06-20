@@ -1,0 +1,59 @@
+<div class="col-md-10">
+  <div class="box box-primary">
+   <div class="box-body">
+
+<%= form_for(@employe) do |f| %>
+  <% if @employe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employe.errors.count, "error") %> prohibited this employe from being saved:</h2>
+
+      <ul>
+      <% @employe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box-body">
+  
+  <div class="field">
+    <b> Name </b><br>
+    <%= f.text_field :e_name,class: "form-control"  ,placeholder: "Enter Name Here" %>
+  </div><br>
+  <div class="field">
+    <b>Employe's ID No.</b><br>
+    <%= f.text_field :e_no,class: "form-control"  ,placeholder: "Enter Employe_id no." %>
+  </div><br>
+  <div class="field">
+    <b>Choose Employe's Designation</b><br>
+    <%= f.select :designation_id,Designation.where('is_active =  ?', true).map{|e| [e.title,e.id, class: "form-control abc"]}%>
+  </div><br>
+  <div class="field">
+    <b>Employe's Address</b><br>
+    <%= f.text_field :e_address,class: "form-control"  ,placeholder: "Enter Employes address" %>
+  </div><br>
+  <div class="field">
+    <b>Employe's Email</b><br>
+    <%= f.text_field :e_email,class: "form-control"  ,placeholder: "Employes Email" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.check_box :is_active%>
+    &nbsp&nbsp<b>Choose Active/Inactive</b>
+  </div>
+  
+
+  <div class="box-footer">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to 'Back',employes_path %>
+  </div>
+
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+<script >
+   $('select').select2();
+</script>

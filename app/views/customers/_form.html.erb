@@ -1,0 +1,52 @@
+<div class="col-md-10">
+  <div class="box box-primary">
+   <div class="box-body">
+
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="box-body">
+
+
+  <div class="field">
+   <b>Customer Name</b><br>
+    <%= f.text_field :c_name,class: "form-control"  ,placeholder: "Enter Name Here"%>
+  </div><br>
+  <div class="field">
+    <b>Customer's Phone no.</b><br>
+    <%= f.text_field :c_phoneno,class: "form-control",placeholder: "Enter Phone no."  %>
+  </div><br>
+  <div class="field">
+   <b>Customer's Email</b><br>
+    <%= f.text_field :c_email ,class: "form-control",placeholder: "Enter Email" %>
+  </div><br>
+  <div class="field">
+    <b>Customer's Address</b><br>
+    <%= f.text_field :address ,class: "form-control",placeholder: "Enter Address" %>
+  </div><br>
+  <div class="field">
+    <%= f.check_box :is_active %>
+    &nbsp&nbsp<b>Active/Inactive</b><br>
+  </div><br>
+   
+
+ <div class="box-footer">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to 'Back',customers_path %>
+</div>
+
+<% end %>
+</div>
+</div>
+</div>
+</div>
